@@ -1,0 +1,20 @@
+{
+  "addBook": {
+    "title": "Clean Code",
+    "author": "Robert Martin",
+    "isbn": "978-0132350884",
+    "category": "Programming",
+    "totalCopies": 3
+  },
+  "registerMember": {
+    "name": "John Doe",
+    "email": "john.doe@email.com",
+    "phone": "9876543210",
+    "address": "123 Main Street, City"
+  },
+  "issueBook": {
+    "bookId": 1,
+    "memberId": 1,
+    "dueDate": "2026-06-15"
+  }
+}
