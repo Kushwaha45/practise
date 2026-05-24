@@ -1,0 +1,147 @@
+{
+  "info": {
+    "name": "Library Management API",
+    "description": "Postman collection for Library Book Issue & Return Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Add Book",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Clean Code\",\n  \"author\": \"Robert Martin\",\n  \"isbn\": \"978-0132350884\",\n  \"category\": \"Programming\",\n  \"totalCopies\": 3\n}"
+            },
+            "url": "{{baseUrl}}/api/books"
+          }
+        },
+        {
+          "name": "Get All Books",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/books" }
+        },
+        {
+          "name": "Get Available Books",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/books/available" }
+        },
+        {
+          "name": "Search By Title",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/books/title/Clean" }
+        },
+        {
+          "name": "Search By Author",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/books/author/Robert" }
+        },
+        {
+          "name": "Update Book",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Clean Code Updated\",\n  \"author\": \"Robert Martin\",\n  \"isbn\": \"978-0132350884\",\n  \"category\": \"Programming\",\n  \"totalCopies\": 5\n}"
+            },
+            "url": "{{baseUrl}}/api/books/1"
+          }
+        },
+        {
+          "name": "Delete Book",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/books/1" }
+        }
+      ]
+    },
+    {
+      "name": "Members",
+      "item": [
+        {
+          "name": "Register Member",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@email.com\",\n  \"phone\": \"9876543210\",\n  \"address\": \"123 Main Street, City\"\n}"
+            },
+            "url": "{{baseUrl}}/api/members"
+          }
+        },
+        {
+          "name": "Get All Members",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/members" }
+        },
+        {
+          "name": "Get Member By ID",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/members/1" }
+        },
+        {
+          "name": "Update Member",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe Updated\",\n  \"email\": \"john.doe@email.com\",\n  \"phone\": \"9876543210\",\n  \"address\": \"456 New Street, City\"\n}"
+            },
+            "url": "{{baseUrl}}/api/members/1"
+          }
+        },
+        {
+          "name": "Get Member Books",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/members/1/books" }
+        },
+        {
+          "name": "Delete Member",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/api/members/1" }
+        }
+      ]
+    },
+    {
+      "name": "Issues",
+      "item": [
+        {
+          "name": "Issue Book",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookId\": 1,\n  \"memberId\": 1,\n  \"dueDate\": \"2026-06-15\"\n}"
+            },
+            "url": "{{baseUrl}}/api/issues/issue"
+          }
+        },
+        {
+          "name": "Return Book",
+          "request": { "method": "PUT", "url": "{{baseUrl}}/api/issues/return/1" }
+        },
+        {
+          "name": "Get All Issues",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/issues" }
+        },
+        {
+          "name": "Get Active Issues",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/issues/active" }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Get Stats",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/dashboard/stats" }
+        }
+      ]
+    }
+  ]
+}
